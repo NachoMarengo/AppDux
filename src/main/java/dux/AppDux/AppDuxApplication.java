@@ -7,6 +7,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
+import dux.AppDux.entity.Equipo;
+import dux.AppDux.service.IServicioEquipo;
+
 
 
 @SpringBootApplication
