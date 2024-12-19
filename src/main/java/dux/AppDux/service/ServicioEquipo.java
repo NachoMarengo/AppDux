@@ -40,6 +40,12 @@ public class ServicioEquipo implements IServicioEquipo {
     	return equipos;
     }
     
+    public List<String> getListaNombresEquiposExistentes(String nombre){
+    	List<Equipo> equiposExistentes = getEquipoPorNombre(nombre);
+    	List<String> nombresExistentes = equiposExistentes.stream().map(obj -> obj.getNombre()).toList();
+    	return nombresExistentes;
+    }
+    
     public Equipo addEquipo(Equipo equipo) {
     	
     	String msjError = "La solicitud es invalida";
@@ -50,8 +56,8 @@ public class ServicioEquipo implements IServicioEquipo {
 	        throw new Excepciones.ExcepcionBadRequest(msjError);
     	
 		List<Equipo> nombresExistentes = getEquipoPorNombre(equipo.getNombre());
-		
-    	validado = EquipoUtil.validarEquipo(equipo, nombresExistentes);
+	
+    	validado = EquipoUtil.validarNombreUnico(equipo, nombresExistentes);
     	
     	if(!validado)
 	        throw new Excepciones.ExcepcionBadRequest(msjError);
@@ -87,7 +93,7 @@ public class ServicioEquipo implements IServicioEquipo {
 
 	public Long findMaxId() {
 		Long id= equipoRepositorio.findMaxId();
-		return id;
+	    return (id != null) ? id : 0L;
 	}
 
 }

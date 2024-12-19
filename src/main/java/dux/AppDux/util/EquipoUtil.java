@@ -2,6 +2,7 @@ package dux.AppDux.util;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -50,7 +51,10 @@ public class EquipoUtil {
 	 * @return
 	 */
 	public static boolean validarDatosCompletos(Equipo equipo) {
-
+		
+        if (equipo == null)
+            return false;
+       
 		return esTextoValido(equipo.getLiga()) &&
 				esTextoValido(equipo.getNombre()) &&
 				esTextoValido(equipo.getPais());
@@ -66,13 +70,20 @@ public class EquipoUtil {
 	 * @param nombresExistentes
 	 * @return
 	 */
-	public static boolean validarEquipo(Equipo equipo, List<Equipo> nombresExistentes) {
-		
-		for (Equipo nombreExistente : nombresExistentes) {
-			if (nombreExistente.getNombre().equals(equipo.getNombre()))
-				return false;
-		}
+	public static boolean validarNombreUnico(Equipo equipo, List<Equipo> equiposExistentes) {
+	    if (equipo == null || equiposExistentes == null) {
+	        throw new IllegalArgumentException("El equipo y la lista de equipos existentes no pueden ser nulos.");
+	    }
 
-		return true;
+	    Optional<Equipo> equipoExistente = equiposExistentes.stream()
+	        .filter(e -> e.getNombre() != null && e.getNombre().equalsIgnoreCase(equipo.getNombre()))
+	        .findFirst();
+
+	    return equipoExistente.isEmpty();  // Retorna true si no se encuentra ningún equipo con el mismo nombre
 	}
+
+    
+	
+	
+	
 }
