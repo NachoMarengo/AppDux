@@ -15,7 +15,7 @@ basada en JWT para acceder a los endpoints.
 Ejecuta el comando mvn clean package, que generara el .jar en el 
 directorio target.
 
-Ejecuta en una terminal bash los siguientes comandos:
+luego podras ejecutar en una terminal de PowerShell los siguientes comandos, que iniciaran la ejecucion de la app:
 
 java -jar target/AppDux-1.0.0-SNAPSHOT.jar
 
