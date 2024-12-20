@@ -11,13 +11,6 @@ basada en JWT para acceder a los endpoints.
 |Maven 3.9 				         |
 |Docker					            |	
 -----------------------
- 
-Ejecuta el comando mvn clean package, que generara el .jar en el 
-directorio target.
-
-luego podras ejecutar en una terminal de PowerShell los siguientes comandos, que iniciaran la ejecucion de la app:
-
-java -jar target/AppDux-1.0.0-SNAPSHOT.jar
 
 Para ejecucion en contenedor docker:
 
