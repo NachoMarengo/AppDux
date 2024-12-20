@@ -7,10 +7,12 @@ una base de datos H2 localizada en memoria. Ademas, cuenta con autenticación
 basada en JWT para acceder a los endpoints.
 
 .------Requisitos-------.
-|Java 17				            |
-|Maven 3.9 				         |
-|Docker					            |	
+|Java 17				        |
+|Maven 3.9 				      |
+|Docker					        |	
 -----------------------
+
+------EL PUERTO ES 9090----- 
 
 Para ejecucion en contenedor docker:
 
