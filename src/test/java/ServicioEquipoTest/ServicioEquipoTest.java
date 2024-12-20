@@ -34,7 +34,6 @@ class ServicioEquipoTest {
 
 	@BeforeEach
 	void setPrueba() {
-		;
 		// metemos un espacio
 		_traza.info("");
 		MockitoAnnotations.openMocks(this);
